@@ -6,7 +6,7 @@
 #    By: vbokotej <vbokotej@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 20:06:11 by vbokotej          #+#    #+#              #
-#    Updated: 2025/12/22 22:30:29 by vbokotej         ###   ########.fr        #
+#    Updated: 2025/12/22 23:36:47 by vbokotej         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,13 @@ ft_substr.c \
 ft_strjoin.c \
 ft_strtrim.c \
 ft_split.c \
-ft_itoa.c
+ft_itoa.c \
+ft_strmapi.c \
+ft_striteri.c \
+ft_putchar_fd.c \
+ft_putstr_fd.c \
+ft_putendl_fd.c \
+ft_putnbr_fd.c
 
 OBJ = $(SRC_FILES:.c=.o)
 
