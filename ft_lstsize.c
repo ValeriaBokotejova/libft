@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbokotej <vbokotej@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 20:48:02 by vbokotej          #+#    #+#             */
-/*   Updated: 2025/11/20 21:07:08 by vbokotej         ###   ########.fr       */
+/*   Created: 2025/12/23 00:07:52 by vbokotej          #+#    #+#             */
+/*   Updated: 2025/12/23 17:28:01 by vbokotej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lstsize(t_list *lst)
 {
-	while (*s)
+	int	count;
+
+	count = 0;
+	while (lst)
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
+		lst = lst->next;
+		count++;
 	}
-	if ((unsigned char)c == '\0')
-		return ((char *)s);
-	return (NULL);
+	return (count);
 }
 /*
-Returns a pointer to the first occurrence of character c in string s.
-Returns NULL if c is not found 
-(except '\0', which returns pointer to string end).
+Counts the number of nodes in the list.
 */

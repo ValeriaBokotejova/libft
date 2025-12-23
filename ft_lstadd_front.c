@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbokotej <vbokotej@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 20:48:02 by vbokotej          #+#    #+#             */
-/*   Updated: 2025/11/20 21:07:08 by vbokotej         ###   ########.fr       */
+/*   Created: 2025/12/23 00:07:36 by vbokotej          #+#    #+#             */
+/*   Updated: 2025/12/23 17:12:41 by vbokotej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	while (*s)
-	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((unsigned char)c == '\0')
-		return ((char *)s);
-	return (NULL);
+	if (!new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
 /*
-Returns a pointer to the first occurrence of character c in string s.
-Returns NULL if c is not found 
-(except '\0', which returns pointer to string end).
+Add the 'new' element at the front of the list.
 */

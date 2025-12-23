@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbokotej <vbokotej@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 20:48:02 by vbokotej          #+#    #+#             */
-/*   Updated: 2025/11/20 21:07:08 by vbokotej         ###   ########.fr       */
+/*   Created: 2025/12/23 00:08:22 by vbokotej          #+#    #+#             */
+/*   Updated: 2025/12/23 17:36:09 by vbokotej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	while (*s)
+	t_list	*last;
+
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	if ((unsigned char)c == '\0')
-		return ((char *)s);
-	return (NULL);
 }
 /*
-Returns a pointer to the first occurrence of character c in string s.
-Returns NULL if c is not found 
-(except '\0', which returns pointer to string end).
+Adds the node 'new' at the end of the list.
 */

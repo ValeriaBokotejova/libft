@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbokotej <vbokotej@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 20:48:02 by vbokotej          #+#    #+#             */
-/*   Updated: 2025/11/20 21:07:08 by vbokotej         ###   ########.fr       */
+/*   Created: 2025/12/23 00:09:07 by vbokotej          #+#    #+#             */
+/*   Updated: 2025/12/23 18:27:28 by vbokotej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (*s)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	if ((unsigned char)c == '\0')
-		return ((char *)s);
-	return (NULL);
 }
 /*
-Returns a pointer to the first occurrence of character c in string s.
-Returns NULL if c is not found 
-(except '\0', which returns pointer to string end).
+Iterates through the list 'lst' and applies the
+function 'f' to the content of each node.
 */

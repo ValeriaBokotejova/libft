@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbokotej <vbokotej@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 20:48:02 by vbokotej          #+#    #+#             */
-/*   Updated: 2025/11/20 21:07:08 by vbokotej         ###   ########.fr       */
+/*   Created: 2025/12/23 00:08:50 by vbokotej          #+#    #+#             */
+/*   Updated: 2025/12/23 18:22:51 by vbokotej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	while (*s)
+	t_list	*tmp;
+
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	if ((unsigned char)c == '\0')
-		return ((char *)s);
-	return (NULL);
+	*lst = NULL;
 }
 /*
-Returns a pointer to the first occurrence of character c in string s.
-Returns NULL if c is not found 
-(except '\0', which returns pointer to string end).
+Deletes all nodes of a linked list using the given function to free content.
+Frees each node and sets the list pointer to NULL at the end.
 */

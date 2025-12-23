@@ -19,14 +19,19 @@ char	*ft_strrchr(const char *s, int c)
 	find = NULL;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == (unsigned char)c)
 		{
 			find = ((char *)s);
 		}
 		s++;
 	}
-	if (c == '\0')
+	if ((unsigned char)c == '\0')
 		return ((char *)s);
 	else
 		return (find);
 }
+/*
+Returns a pointer to the last occurrence of character c in string s.
+Returns NULL if c is not found 
+(except '\0', which returns pointer to string end).
+*/

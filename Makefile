@@ -6,7 +6,7 @@
 #    By: vbokotej <vbokotej@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 20:06:11 by vbokotej          #+#    #+#              #
-#    Updated: 2025/12/22 23:36:47 by vbokotej         ###   ########.fr        #
+#    Updated: 2025/12/23 16:49:39 by vbokotej         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,12 +50,22 @@ ft_striteri.c \
 ft_putchar_fd.c \
 ft_putstr_fd.c \
 ft_putendl_fd.c \
-ft_putnbr_fd.c
+ft_putnbr_fd.c \
+ft_lstnew.c \
+ft_lstadd_front.c \
+ft_lstsize.c \
+ft_lstlast.c \
+ft_lstadd_back.c \
+ft_lstdelone.c \
+ft_lstclear.c \
+ft_lstiter.c \
+ft_lstmap.c
 
 OBJ = $(SRC_FILES:.c=.o)
 
 # Rules
 all: $(NAME)
+bonus: all
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
